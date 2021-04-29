@@ -7,6 +7,7 @@ const Home=()=>import('../views/home/home');
 const Category=()=>import('../views/category/category');
 const Cart=()=>import('../views/cart/cart');
 const Mine=()=>import('../views/mine/mine');
+const Detail=()=>import('../views/detail/Detail')
 
 const routes=[
   {
@@ -28,6 +29,10 @@ const routes=[
   {
     path:'/mine',
     component:Mine
+  },
+  {
+    path:'/detail/:iid',
+    component:Detail
   }
 ]
 const router=new VueRouter({

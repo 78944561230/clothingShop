@@ -18,6 +18,12 @@ export default {
       type: Boolean,
       default: false,
     },
+    data:{
+      type:Array,
+      default:()=>{
+        return []
+      }
+    }
   },
   data() {
     return {
@@ -50,7 +56,6 @@ export default {
   },
   methods:{
     scrollTo(x,y,time=300){
-      console.log('回到顶部')
       this.scroll && this.scroll.scrollTo(x,y,time)
     },
     finishPullUp(){
@@ -59,6 +64,11 @@ export default {
     refresh() {
         this.scroll && this.scroll.refresh()
     },
+  },
+  watch:{
+    data(){
+      setTimeout(this.refresh,20)
+    }
   }
 };
 </script>

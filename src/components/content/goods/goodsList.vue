@@ -1,5 +1,6 @@
 <template>
   <div class="goods-list">
+    <slot></slot>
     <goods-list-item v-for="item in goods" :goodsItem="item" :key="item.acm"></goods-list-item>
   </div>
 </template>
