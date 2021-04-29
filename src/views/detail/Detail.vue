@@ -121,7 +121,7 @@
         console.log('加入购物车');
         //1.获取购物车需由展示的信息
         const product = {}
-        product.image = this.topImages[0];
+        product.image = this.topImage[0];
         product.title = this.goods.title;
         product.desc = this.goods.desc;
         product.price = this.goods.realPrice;
