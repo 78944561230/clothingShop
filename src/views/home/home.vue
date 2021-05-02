@@ -45,7 +45,7 @@ import Scroll from "components/common/scroll/Scroll.vue";
 import BackTop from "components/content/backTop/BackTop.vue";
 import {debounce} from "common/utils"
 export default {
-  name: "home",
+  name: "Home",
   components: {
     NavBar,
     Swiper,

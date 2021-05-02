@@ -127,7 +127,7 @@
         product.price = this.goods.realPrice;
         product.iid = this.iid;
         //添加到Store中
-        this.$store.commit('addCart',product);
+        this.$store.dispatch('addCart',product);
       }
     },
   }
