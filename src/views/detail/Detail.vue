@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <detail-nav-bar class="detail-nav" @itemClick="titleClick" :current-index="currentIndex"></detail-nav-bar>
-    <scroll class="content" ref="scroll" @scroll="contentScroll">
+    <scroll class="content" ref="scroll" @scroll="contentScroll" :data="recommendList">
       <detail-swiper ref="base" :topImages="topImage"></detail-swiper>
       <detail-base-info :goods='goods'></detail-base-info>
       <detail-shop-info :shop='shop'></detail-shop-info>
@@ -88,7 +88,6 @@
         this.recommendList = res.data.list
       })
     },
-
     methods:{
       imageLoad(){
         this.$refs.scroll.refresh()
@@ -127,7 +126,9 @@
         product.price = this.goods.realPrice;
         product.iid = this.iid;
         //添加到Store中
-        this.$store.dispatch('addCart',product);
+        this.$store.dispatch('addCart',product).then(res => {
+          console.log(res)
+        });
       }
     },
   }

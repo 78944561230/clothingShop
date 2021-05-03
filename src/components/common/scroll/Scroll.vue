@@ -52,7 +52,7 @@ export default {
           this.$emit('pullingUp')
         })
       }
-    }, 50);
+    },20);
   },
   methods:{
     scrollTo(x,y,time=300){

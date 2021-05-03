@@ -69,7 +69,8 @@ export default {
       currentType: "pop",
       isShowBackTop: false,
       isTopShop:false,
-      tabOffsetTop:0
+      tabOffsetTop:0,
+      scrollY:0
     };
   },
   computed: {
@@ -91,6 +92,12 @@ export default {
       refresh();
     })
   },
+  // activated(){
+  //   this.$refs.scroll.scrollTo(0,this.scrollY);
+  // },
+  // deactivated(){
+  //   this.scrollY = this.$refs.scroll.scroll.y
+  // },
   methods: {
     tabClick(index) {
       switch (index) {
