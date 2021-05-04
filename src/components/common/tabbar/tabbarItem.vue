@@ -1,7 +1,7 @@
 <template>
   <div class="tab_bar_Item" @click="clickItem">
-    <div v-if="isCheck"><slot name="item-icon"></slot></div>
-    <div v-else><slot name="item-icon-active"></slot></div>
+    <div v-if="isCheck"><slot name="item-icon-active"></slot></div>
+    <div v-else><slot name="item-icon"></slot></div>
     <div :style="activeStyle"><slot name="item-text"></slot></div>
   </div>
 </template>
@@ -23,16 +23,18 @@ export default {
   },
   computed: {
     isCheck() {
-      return this.$route.path.indexOf(this.path) === -1;
+      return this.$route.path.indexOf(this.path) !== -1;
     },
     activeStyle(){
-      return this.isCheck ?{}:{'color':this.activeColor}
+      return this.isCheck ?{'color':this.activeColor}:{}
     }
   },
   methods: {
     clickItem() {
       console.log(this.path);
+      if(this.isCheck) return
       this.$router.replace(this.path);
+      
     },
   },
 };
