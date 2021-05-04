@@ -3,7 +3,7 @@
     <CheckedButton :isCheck="isSelectAll" class="select-all" @checkBtnClick="checkBtnClick"></CheckedButton>
     <span>全选</span>
     <span class="total-price">合计:￥{{totalPrice}}</span>
-    <span class="buy-product">去结算(0)</span>
+    <span class="buy-product" @click="balance">去结算({{getSelectCount}})</span>
   </div>
 </template>
 <script>
@@ -27,6 +27,11 @@
         if(cartList.length === 0) return false;
         return cartList.find(item => item.checked === false) === undefined;
       },
+      getSelectCount(){
+        return this.$store.getters.cartList.filter(item =>{
+          return item.checked;
+        }).length;
+      }
     },
     methods:{
       checkBtnClick(){
@@ -39,7 +44,12 @@
             item.checked = true;
           });
         }
-      }
+      },
+      balance(){
+        if(!this.getSelectCount){
+          this.$toast.show('请选择商品',2000)
+        }
+      },
     }
   }
 </script>

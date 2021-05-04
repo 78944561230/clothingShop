@@ -27,6 +27,8 @@
   import DetailBottomBar from './childComps/DetailBottomBar'
 
   import {getDetail,getRecommend,Goods,Shop,GoodsParam} from 'network/detail';
+  import { mapActions } from 'vuex';
+
   export default {
     name:'Detail',
     components:{
@@ -89,6 +91,7 @@
       })
     },
     methods:{
+      ...mapActions(['addCart']),
       imageLoad(){
         this.$refs.scroll.refresh()
         this.getOffsetTops();
@@ -126,9 +129,14 @@
         product.price = this.goods.realPrice;
         product.iid = this.iid;
         //添加到Store中
-        this.$store.dispatch('addCart',product).then(res => {
+        this.addCart(product).then(res => {
           console.log(res)
-        });
+          this.$toast.show(res,3000);
+        })
+        // this.$store.dispatch('addCart',product).then(res => {
+        //   console.log(res)
+        //   this.$toast.show(res);
+        // });
       }
     },
   }

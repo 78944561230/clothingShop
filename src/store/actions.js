@@ -1,7 +1,6 @@
 export default {
   addCart(context, info) {
     return new Promise((resolve,reject)=>{
-      console.log(info);
       //判断是否添加过
       const oldInfo =context.state.cartList.find(item => item.iid === info.iid);
   
