@@ -77,8 +77,9 @@
         this.detailInfo = data.detailInfo;
 
         //5.获取参数的信息
-        this.paramInfo = new GoodsParam(data.itemParams.info, data.itemParams.rule);
 
+        this.paramInfo = new GoodsParam(data.itemParams.info, data.itemParams.rule);
+        
         //6.保存评论信息
         if(data.rate.list){
           this.commentInfo = data.rate.list[0];

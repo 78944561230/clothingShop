@@ -21,7 +21,9 @@ export default {
   },
   computed:{
     showImage(){
-      return this.goodsItem.image || this.goodsItem.show.img;
+      if(this.goodsItem.image) return this.goodsItem.image;
+      else if(this.goodsItem.show) return this.goodsItem.show.img;
+      else if(this.goodsItem.img) return this.goodsItem.img;
     }
   },
   methods:{
