@@ -2,6 +2,7 @@
   <div id="cart">
     <nav-bar class="nav-bar"><div slot="center">购物车({{cartCount}})</div></nav-bar>
     <cart-list class="cart-list" :card-list="cartList"></cart-list>
+    
     <bottom-bar></bottom-bar>
   </div>
 </template>
